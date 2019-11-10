@@ -1,0 +1,78 @@
+<html>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+
+</br>
+
+</br>
+
+</br>
+<header>
+
+
+</header>
+
+
+</br>
+
+
+
+<!-- List of Text Items -->
+<ion-list id="list">
+  
+</ion-list>
+
+<style>
+#save{
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+
+}
+</style>
+
+
+
+
+<ion-button OnClick="save()" color="primary">Save</ion-button>
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<script src="actions.js"></script>
+<script>
+for( var i = 0; i < localStorage.length; i++){
+    if(localStorage.key(i).substr(0,7) == "student")
+	{
+	
+var key=localStorage.key(i);
+var list=document.getElementById("list")
+
+
+var item = document.createElement("ion-item");
+
+item.id=key
+var label = document.createElement("ion-label");
+var student= JSON.parse(localStorage.getItem(key));
+label.innerHTML=student.nom+"<br/>"+student.lastname+"<br/>"+student.salary;
+
+item.appendChild(label);
+
+list.appendChild(item);
+
+
+}
+}
+
+
+</script>
+</body>
+
+
+
+</html>
